@@ -208,7 +208,7 @@ void Mob::applyDamage(int32_t playerid, int32_t damage, bool poison) {
 			switch (getMobId()) {
 				case Mobs::HorntailSponge:
 					for (unordered_map<int32_t, Mob *>::iterator spawniter = spawns.begin(); spawniter != spawns.end(); spawniter++) {
-						new Timer::Timer(bind(&Mob::die, spawniter->second, true),
+						new Timer::Timer([&]() { spawniter->second->die(true); },
 							Timer::Id(Timer::Types::HorntailTimer, id, spawniter->first),
 							0, Timer::Time::fromNow(400));
 					}
