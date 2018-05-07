@@ -38,4 +38,5 @@ target_link_libraries(WorldServer
 	${CRYPTO++_LIBRARIES}
 	${Boost_SYSTEM_LIBRARY}
 	${Boost_THREAD_LIBRARY}
+	pthread
 )
