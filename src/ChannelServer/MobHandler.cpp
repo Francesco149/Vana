@@ -74,7 +74,7 @@ const int32_t MobHandler::mobstatuses[StatusEffects::Mob::Count] = { // Order by
 	StatusEffects::Mob::WeaponDamageReflect,
 
 	StatusEffects::Mob::MagicDamageReflect,
-	StatusEffects::Mob::NoClue7
+	(int32_t)StatusEffects::Mob::NoClue7
 };
 
 void MobHandler::handleBomb(Player *player, PacketReader &packet) {
