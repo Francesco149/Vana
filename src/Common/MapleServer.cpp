@@ -38,7 +38,7 @@ void MapleServer::stop() {
 }
 
 void MapleServer::start_accept() {
-	MapleSessionPtr new_session(new MapleSession(m_acceptor.io_service(),
+	MapleSessionPtr new_session(new MapleSession(m_acceptor.get_io_service(),
 		m_session_manager, m_apf->createPlayer(), true, m_connect_packet_unknown));
 
     m_acceptor.async_accept(new_session->getSocket(),
