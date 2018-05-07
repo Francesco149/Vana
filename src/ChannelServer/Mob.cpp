@@ -135,17 +135,17 @@ void Mob::initMob() {
 	statuses[empty.status] = empty;
 
 	if (info.hprecovery > 0) {
-		new Timer::Timer(bind(&Mob::naturalHealHp, this, info.hprecovery),
+		new Timer::Timer(std::bind(&Mob::naturalHealHp, this, info.hprecovery),
 			Timer::Id(Timer::Types::MobHealTimer, 0, 0),
 			getTimers(), 0, 10 * 1000);
 	}
 	if (info.mprecovery > 0) {
-		new Timer::Timer(bind(&Mob::naturalHealMp, this, info.mprecovery),
+		new Timer::Timer(std::bind(&Mob::naturalHealMp, this, info.mprecovery),
 			Timer::Id(Timer::Types::MobHealTimer, 1, 1),
 			getTimers(), 0, 10 * 1000);
 	}
 	if (info.removeafter > 0) {
-		new Timer::Timer(bind(&Mob::applyDamage, this, 0, info.hp, false),
+		new Timer::Timer(std::bind(&Mob::applyDamage, this, 0, info.hp, false),
 			Timer::Id(Timer::Types::MobRemoveTimer, mobid, id),
 			map->getTimers(), Timer::Time::fromNow(info.removeafter * 1000));
 	}
