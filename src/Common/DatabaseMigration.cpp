@@ -76,9 +76,9 @@ void DatabaseMigration::loadDatabaseInfo() {
 }
 
 void DatabaseMigration::loadSQLFiles() {
-	fs::path full_path = fs::system_complete(fs::path("sql", fs::native));
+	fs::path full_path = fs::system_complete(fs::path("sql"));
 	if (!fs::exists(full_path)) {
-		std::cout << "SQL files not found: " << full_path.native_file_string() << std::endl;
+		std::cout << "SQL files not found: " << full_path.string() << std::endl;
 		std::cout << "Press enter to quit ...";
 		getchar();
 		exit(1);
@@ -86,8 +86,8 @@ void DatabaseMigration::loadSQLFiles() {
 
 	fs::directory_iterator end_iter;
 	for (fs::directory_iterator dir_iter(full_path); dir_iter != end_iter; dir_iter++) {
-		string filename = dir_iter->filename();
-		string filestring = dir_iter->path().native_file_string();
+		string filename = dir_iter->path().filename().string();
+		string filestring = dir_iter->path().string();
 		if (filename.find(".sql") == string::npos) {
 			// Not an SQL file
 			continue;
