@@ -293,13 +293,13 @@ void Mob::addStatus(int32_t playerid, vector<StatusInfo> &statusinfo) {
 			case StatusEffects::Mob::Poison:
 			case StatusEffects::Mob::VenomousWeapon:
 			case StatusEffects::Mob::NinjaAmbush: // Damage timer for poison(s)
-				new Timer::Timer(bind(&Mob::applyDamage, this, playerid, statusinfo[i].val, true),
+				new Timer::Timer(std::bind(&Mob::applyDamage, this, playerid, statusinfo[i].val, true),
 					Timer::Id(Timer::Types::MobStatusTimer, cstatus, 1),
 					getTimers(), 0, 1000);
 				break;
 		}
 
-		new Timer::Timer(bind(&Mob::removeStatus, this, cstatus, true),
+		new Timer::Timer(std::bind(&Mob::removeStatus, this, cstatus, true),
 			Timer::Id(Timer::Types::MobStatusTimer, cstatus, 0),
 			getTimers(), Timer::Time::fromNow(statusinfo[i].time * 1000));
 	}
