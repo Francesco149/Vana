@@ -17,6 +17,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 #include "LoginServer.h"
 #include "ConnectionManager.h"
+#include <iostream>
 #include <exception>
 #include <functional>
 

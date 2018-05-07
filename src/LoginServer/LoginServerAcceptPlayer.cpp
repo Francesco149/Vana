@@ -24,6 +24,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "RankingCalculator.h"
 #include "Worlds.h"
 
+#include <iostream>
+
 LoginServerAcceptPlayer::~LoginServerAcceptPlayer() {
 	if (worldId != -1) {
 		Worlds::worlds[worldId]->connected = false;

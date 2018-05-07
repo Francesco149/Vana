@@ -181,4 +181,5 @@ target_link_libraries(ChannelServer
 	${Boost_REGEX_LIBRARY}
 	${Boost_SYSTEM_LIBRARY}
 	${Boost_THREAD_LIBRARY}
+	pthread
 )

@@ -27,6 +27,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "PacketReader.h"
 #include "PlayerStatus.h"
 
+#include <iostream>
+
 map<uint8_t, World *> Worlds::worlds;
 
 void Worlds::showWorld(PlayerLogin *player) {
